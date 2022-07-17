@@ -6,6 +6,7 @@ import com.github.timrs2998.pdfbuilder.style.Border
 import com.github.timrs2998.pdfbuilder.style.Margin
 import com.github.timrs2998.pdfbuilder.style.Padding
 import org.apache.pdfbox.pdmodel.font.PDType1Font
+import org.apache.pdfbox.pdmodel.font.Standard14Fonts
 import java.awt.Color
 
 /**
@@ -18,11 +19,10 @@ object KotlinDslExample {
   @JvmStatic
   fun main(args: Array<String>) {
     document {
-
       padding = Padding(50f, 50f, 50f, 50f)
       horizontalAlignment = Alignment.CENTER
 
-      //Free image from https://pixabay.com/
+      // Free image from https://pixabay.com/
       val img = this::class.java.classLoader.getResource("cat.jpg")
       image(img.path) {
         imgHeight = 50
@@ -41,7 +41,7 @@ object KotlinDslExample {
 
         header {
           backgroundColor = Color.CYAN
-          pdFont = PDType1Font.TIMES_BOLD
+          pdFont = PDType1Font(Standard14Fonts.FontName.TIMES_BOLD)
 
           text("First Column")
           text("Second Column")
@@ -62,5 +62,4 @@ object KotlinDslExample {
       pdDocument.close()
     }
   }
-
 }

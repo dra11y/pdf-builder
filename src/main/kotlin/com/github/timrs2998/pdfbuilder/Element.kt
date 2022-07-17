@@ -7,6 +7,7 @@ import com.github.timrs2998.pdfbuilder.style.Padding
 import org.apache.pdfbox.pdmodel.PDDocument
 import org.apache.pdfbox.pdmodel.font.PDFont
 import org.apache.pdfbox.pdmodel.font.PDType1Font
+import org.apache.pdfbox.pdmodel.font.Standard14Fonts
 import java.awt.Color
 
 /**
@@ -42,7 +43,7 @@ abstract class Element(open val parent: Element?) {
     private val FALLBACK_HORIZONTAL_ALIGNMENT = Alignment.LEFT
 
     @JvmStatic
-    private val FALLBACK_PD_FONT: PDFont = PDType1Font.TIMES_ROMAN
+    private val FALLBACK_PD_FONT: PDFont = PDType1Font(Standard14Fonts.FontName.TIMES_ROMAN)
   }
 
   // Properties that are not inherited
